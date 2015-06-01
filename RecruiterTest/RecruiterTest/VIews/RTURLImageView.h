@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/**
+ *  This class will display an image from an URL, by donwloading it asynchronously
+ */
 @interface RTURLImageView : UIView
 @property (nonatomic, strong, readwrite) NSURL *imageURL;
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTBaseViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : RTBaseViewController
 
 
 @end

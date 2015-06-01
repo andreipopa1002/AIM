@@ -39,16 +39,19 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     if (self.delegate && [self.delegate respondsToSelector:@selector(dummyDelegateDidReceivedFailedToReceiveData:)]) {
-        [self.delegate dummyDelegateDidReceivedFailedToReceiveData:error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate dummyDelegateDidReceivedFailedToReceiveData:error];
+        });
     }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     if (self.delegate && [self.delegate respondsToSelector:@selector(dummyDelegateDidReceivedData:)]) {
-        [self.delegate dummyDelegateDidReceivedData:self.imageData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate dummyDelegateDidReceivedData:self.imageData];
+        });
     }
 }
-
 
 @end
 
@@ -57,7 +60,7 @@
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
 @property (nonatomic, strong, readwrite) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong, readwrite) NSURLConnection *urlConnection;
-
+@property (nonatomic, strong, readwrite) NSOperationQueue *operationQueue;
 @property (nonatomic, weak, readwrite) RTURLDummyObject *dummyObject;
 
 - (void)setupConstraints;
@@ -90,12 +93,18 @@
 }
 
 #pragma mark - Custom setters & getters
+- (NSOperationQueue *)operationQueue {
+    if (!_operationQueue) {
+        _operationQueue = [NSOperationQueue new];
+    }
+    return _operationQueue;
+}
+
 - (void)setImageURL:(NSURL *)imageURL {
     if (imageURL != _imageURL) {
         _imageURL = imageURL;
         if (self.urlConnection) {
             [self.urlConnection cancel];
-            [self prepareSetupForRevealingImage:nil];
         }
         if (imageURL) {
             RTURLDummyObject *dummyObject = [RTURLDummyObject new];
@@ -104,8 +113,11 @@
                                                                  delegate:dummyObject
                                                          startImmediately:NO];
             self.dummyObject = dummyObject;
+            [self.urlConnection setDelegateQueue:self.operationQueue];
             [self prepareSetupForNewImageDownload];
             [self.urlConnection start];
+        } else {
+            [self prepareSetupForRevealingImage:nil];
         }
     }
 }
@@ -179,10 +191,12 @@
 
 #pragma mark - RTURLDummyObjectDelegate methods
 - (void)dummyDelegateDidReceivedData:(NSData *)data {
+    NSAssert(NSThread.isMainThread, @"Error: Method needs to be called on main thread");
     [self prepareSetupForRevealingImage:[UIImage imageWithData:data]];
 }
 
 - (void)dummyDelegateDidReceivedFailedToReceiveData:(NSError *)error {
+    NSAssert(NSThread.isMainThread, @"Error: Method needs to be called on main thread");
     [self prepareSetupForError:error];
 }
 

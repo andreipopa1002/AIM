@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Popa Andrei. All rights reserved.
 //
 
-#import "RTDataSourceXMLParser.h"
+#import "RTXMLParser.h"
 
 static NSString *const kPlayoutDataElementName = @"playoutData";
 static NSString *const kPlayoutItemElementName = @"playoutItem";
 
-@interface RTDataSourceXMLParser() <NSXMLParserDelegate>
+@interface RTXMLParser() <NSXMLParserDelegate>
 
-@property (nonatomic, copy, readwrite) RTDataSourceXMLParserCompletion completionBlock;
+@property (nonatomic, copy, readwrite) RTXMLParserCompletion completionBlock;
 @property (nonatomic, strong, readwrite) NSXMLParser *parser;
 @property (nonatomic, strong, readwrite) NSMutableArray *mutablePlayoutItems;
 @property (nonatomic, strong, readwrite) RTPlayoutItem *currentPlayoutItem;
@@ -22,10 +22,10 @@ static NSString *const kPlayoutItemElementName = @"playoutItem";
 
 @end
 
-@implementation RTDataSourceXMLParser
+@implementation RTXMLParser
 
-+ (instancetype)dataSourceXMLParserFromURL:(NSURL *)xmlURL completionBlock:(RTDataSourceXMLParserCompletion)completionBlock {
-    RTDataSourceXMLParser *xmlParser = [[RTDataSourceXMLParser alloc] init];
++ (instancetype)dataSourceXMLParserFromURL:(NSURL *)xmlURL completionBlock:(RTXMLParserCompletion)completionBlock {
+    RTXMLParser *xmlParser = [[RTXMLParser alloc] init];
     xmlParser.completionBlock = completionBlock;
     xmlParser.parser = [[NSXMLParser alloc] initWithContentsOfURL:xmlURL];
     xmlParser.parser.delegate = xmlParser;

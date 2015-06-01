@@ -31,11 +31,12 @@ static NSString *const kDataSourceURL = @"http://apps.aim-data.com/data/abc/trip
 - (void)setupDataSource {
     self.dataSource = [[RTDataSourceController alloc] init];
     typeof(self) __weak weakSelf = self;
+    [self showLoadingIndicator];
+    [self.dataSource setupDataSourceForTableView:self.tableView];
     [self.dataSource retrieveDataSourceFromURL:[NSURL URLWithString:kDataSourceURL] withCompletion:^{
+        [weakSelf hideLoadingIndicator];
         [weakSelf.tableView reloadData];
     }];
-    [self.dataSource setupDataSourceForTableView:self.tableView];
-
 }
 
 @end

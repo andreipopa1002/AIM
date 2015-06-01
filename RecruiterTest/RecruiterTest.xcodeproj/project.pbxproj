@@ -16,7 +16,8 @@
 		C92EE9141B1A096D00740179 /* RecruiterTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EE9131B1A096D00740179 /* RecruiterTestTests.m */; };
 		C92EE9251B1A0A8900740179 /* RTDataSourceController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EE9241B1A0A8900740179 /* RTDataSourceController.m */; };
 		C92EE9281B1A0E2100740179 /* RTPlayoutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EE9271B1A0E2100740179 /* RTPlayoutItem.m */; };
-		C92EE92B1B1A0EB400740179 /* RTDataSourceXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EE92A1B1A0EB400740179 /* RTDataSourceXMLParser.m */; };
+		C92EE92B1B1A0EB400740179 /* RTXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C92EE92A1B1A0EB400740179 /* RTXMLParser.m */; };
+		C9F322961B1B33F300FFA50B /* RTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F322951B1B33F300FFA50B /* RTBaseViewController.m */; };
 		C9FDE7C91B1A1F2300B8A747 /* RTPlayoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDE7C71B1A1F2300B8A747 /* RTPlayoutTableViewCell.m */; };
 		C9FDE7CA1B1A1F2300B8A747 /* RTPlayoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FDE7C81B1A1F2300B8A747 /* RTPlayoutTableViewCell.xib */; };
 		C9FDE7CD1B1A3F4000B8A747 /* RTURLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FDE7CC1B1A3F4000B8A747 /* RTURLImageView.m */; };
@@ -50,8 +51,10 @@
 		C92EE9241B1A0A8900740179 /* RTDataSourceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDataSourceController.m; sourceTree = "<group>"; };
 		C92EE9261B1A0E2100740179 /* RTPlayoutItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPlayoutItem.h; sourceTree = "<group>"; };
 		C92EE9271B1A0E2100740179 /* RTPlayoutItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPlayoutItem.m; sourceTree = "<group>"; };
-		C92EE9291B1A0EB400740179 /* RTDataSourceXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDataSourceXMLParser.h; sourceTree = "<group>"; };
-		C92EE92A1B1A0EB400740179 /* RTDataSourceXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDataSourceXMLParser.m; sourceTree = "<group>"; };
+		C92EE9291B1A0EB400740179 /* RTXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTXMLParser.h; sourceTree = "<group>"; };
+		C92EE92A1B1A0EB400740179 /* RTXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTXMLParser.m; sourceTree = "<group>"; };
+		C9F322941B1B33F300FFA50B /* RTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTBaseViewController.h; sourceTree = "<group>"; };
+		C9F322951B1B33F300FFA50B /* RTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTBaseViewController.m; sourceTree = "<group>"; };
 		C9FDE7C61B1A1F2300B8A747 /* RTPlayoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPlayoutTableViewCell.h; sourceTree = "<group>"; };
 		C9FDE7C71B1A1F2300B8A747 /* RTPlayoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPlayoutTableViewCell.m; sourceTree = "<group>"; };
 		C9FDE7C81B1A1F2300B8A747 /* RTPlayoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RTPlayoutTableViewCell.xib; sourceTree = "<group>"; };
@@ -98,12 +101,11 @@
 		C92EE8F61B1A096D00740179 /* RecruiterTest */ = {
 			isa = PBXGroup;
 			children = (
+				C9F322931B1B33A700FFA50B /* ViewControllers */,
 				C92EE9211B1A0A0C00740179 /* DataSource */,
 				C92EE91D1B1A097900740179 /* Views */,
 				C92EE8FB1B1A096D00740179 /* AppDelegate.h */,
 				C92EE8FC1B1A096D00740179 /* AppDelegate.m */,
-				C92EE8FE1B1A096D00740179 /* ViewController.h */,
-				C92EE8FF1B1A096D00740179 /* ViewController.m */,
 				C92EE9011B1A096D00740179 /* Main.storyboard */,
 				C92EE9041B1A096D00740179 /* Images.xcassets */,
 				C92EE9061B1A096D00740179 /* LaunchScreen.xib */,
@@ -166,10 +168,21 @@
 			children = (
 				C92EE9261B1A0E2100740179 /* RTPlayoutItem.h */,
 				C92EE9271B1A0E2100740179 /* RTPlayoutItem.m */,
-				C92EE9291B1A0EB400740179 /* RTDataSourceXMLParser.h */,
-				C92EE92A1B1A0EB400740179 /* RTDataSourceXMLParser.m */,
+				C92EE9291B1A0EB400740179 /* RTXMLParser.h */,
+				C92EE92A1B1A0EB400740179 /* RTXMLParser.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9F322931B1B33A700FFA50B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C92EE8FE1B1A096D00740179 /* ViewController.h */,
+				C92EE8FF1B1A096D00740179 /* ViewController.m */,
+				C9F322941B1B33F300FFA50B /* RTBaseViewController.h */,
+				C9F322951B1B33F300FFA50B /* RTBaseViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,10 +290,11 @@
 				C92EE8FD1B1A096D00740179 /* AppDelegate.m in Sources */,
 				C9FDE7CD1B1A3F4000B8A747 /* RTURLImageView.m in Sources */,
 				C9FDE7C91B1A1F2300B8A747 /* RTPlayoutTableViewCell.m in Sources */,
-				C92EE92B1B1A0EB400740179 /* RTDataSourceXMLParser.m in Sources */,
+				C92EE92B1B1A0EB400740179 /* RTXMLParser.m in Sources */,
 				C92EE8FA1B1A096D00740179 /* main.m in Sources */,
 				C92EE9251B1A0A8900740179 /* RTDataSourceController.m in Sources */,
 				C92EE9281B1A0E2100740179 /* RTPlayoutItem.m in Sources */,
+				C9F322961B1B33F300FFA50B /* RTBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

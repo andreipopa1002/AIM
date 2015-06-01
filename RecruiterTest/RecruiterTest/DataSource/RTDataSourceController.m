@@ -7,13 +7,13 @@
 //
 
 #import "RTDataSourceController.h"
-#import "RTDataSourceXMLParser.h"
+#import "RTXMLParser.h"
 #import "RTPlayoutTableViewCell.h"
 
 @interface RTDataSourceController()
 
 @property (nonatomic, copy, readwrite) void (^completionBlock)(void);
-@property (nonatomic, strong, readwrite) RTDataSourceXMLParser *xmlParser;
+@property (nonatomic, strong, readwrite) RTXMLParser *xmlParser;
 @property (nonatomic, strong, readwrite) NSArray *elements;
 
 @end
@@ -21,6 +21,7 @@
 @implementation RTDataSourceController
 
 - (void)setupDataSourceForTableView:(UITableView *)tableView {
+    tableView = tableView;
     tableView.dataSource = self;
     [tableView registerNib:[UINib nibWithNibName:kRTPlayoutTableViewCellNibName bundle:nil] forCellReuseIdentifier:kRTPlayoutTableViewCellIdentifier];
     tableView.delegate = self;
@@ -30,7 +31,7 @@
     self.completionBlock = completionBlock;
     
     typeof(self) __weak weakSelf = self;
-    self.xmlParser = [RTDataSourceXMLParser dataSourceXMLParserFromURL:dataSourceURL completionBlock:^(NSArray *playoutItems) {
+    self.xmlParser = [RTXMLParser dataSourceXMLParserFromURL:dataSourceURL completionBlock:^(NSArray *playoutItems) {
         if (weakSelf.completionBlock) {
             weakSelf.elements = playoutItems;
             weakSelf.completionBlock();
@@ -50,8 +51,8 @@
 
 # pragma mark - UITableViewDataSource Delegate Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.elements.count;
 //    return 1;
+    return self.elements.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

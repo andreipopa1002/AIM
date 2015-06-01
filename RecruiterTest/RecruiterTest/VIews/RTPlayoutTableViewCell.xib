@@ -23,19 +23,19 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn2-IC-cbO" userLabel="Title">
-                        <rect key="frame" x="85" y="13" width="222" height="15"/>
+                        <rect key="frame" x="85" y="8" width="222" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fK5-ma-qsW" userLabel="Artist">
-                        <rect key="frame" x="85" y="33" width="222" height="14"/>
+                        <rect key="frame" x="85" y="31" width="222" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXU-zu-vvt" userLabel="Album">
-                        <rect key="frame" x="85" y="52" width="222" height="15"/>
+                        <rect key="frame" x="85" y="54" width="222" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,8 +46,8 @@
                     <constraint firstItem="nXU-zu-vvt" firstAttribute="top" secondItem="fK5-ma-qsW" secondAttribute="bottom" constant="5" id="4Fg-Ab-jBU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gn2-IC-cbO" secondAttribute="trailing" constant="5" id="5yN-sH-WoD"/>
                     <constraint firstItem="gn2-IC-cbO" firstAttribute="leading" secondItem="IlX-GB-wvv" secondAttribute="trailing" constant="5" id="6el-M1-UsS"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="nXU-zu-vvt" secondAttribute="bottom" constant="5" id="9jf-p1-NKI"/>
-                    <constraint firstItem="gn2-IC-cbO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="CUB-bH-Y48"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nXU-zu-vvt" secondAttribute="bottom" id="9jf-p1-NKI"/>
+                    <constraint firstItem="gn2-IC-cbO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="CUB-bH-Y48"/>
                     <constraint firstAttribute="bottom" secondItem="IlX-GB-wvv" secondAttribute="bottom" id="Foi-Ni-4b5"/>
                     <constraint firstItem="fK5-ma-qsW" firstAttribute="height" secondItem="gn2-IC-cbO" secondAttribute="height" id="GcX-Er-a9d"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fK5-ma-qsW" secondAttribute="trailing" constant="5" id="I6f-9t-qcv"/>
